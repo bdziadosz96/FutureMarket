@@ -6,7 +6,13 @@
 
     <groupId>com.futuremarket</groupId>
     <artifactId>FutureMarket</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>item</module>
+    </modules>
+
     <name>Future Market</name>
 
     <properties>
