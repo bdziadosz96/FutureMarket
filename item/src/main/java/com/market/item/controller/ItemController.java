@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController()
 @RequestMapping("/item")
 @AllArgsConstructor
-class ItemCommandController {
+class ItemController {
     private ItemCommandService commandService;
 
     @PostMapping()

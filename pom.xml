@@ -11,6 +11,7 @@
 
     <modules>
         <module>item</module>
+        <module>auction</module>
     </modules>
 
     <name>Future Market</name>
