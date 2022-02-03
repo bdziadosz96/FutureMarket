@@ -16,8 +16,7 @@ class ItemCommandServiceImpl implements ItemCommandService {
     public void createItem(RestItemCommand command) {
         repository.save(new Item(
                 command.name(),
-                command.description(),
-                command.quantity()
+                command.description()
         ));
     }
 }
