@@ -1,5 +1,6 @@
 package com.market.item.service.impl;
 
+import com.market.item.controller.AvailableCheckResponse;
 import com.market.item.domain.Item;
 import com.market.item.repository.ItemRepository;
 import com.market.item.service.ItemQueryService;
@@ -16,4 +17,13 @@ class ItemQueryServiceImpl implements ItemQueryService {
     public List<Item> findAll() {
         return repository.findAll();
     }
+
+    @Override
+    public AvailableCheckResponse checkAvailability(Long id) {
+        Boolean aBoolean = repository.findById(id)
+                .map(Item::getIsAvailable)
+                .orElse(false);
+        return new AvailableCheckResponse(aBoolean);
+    }
+
 }

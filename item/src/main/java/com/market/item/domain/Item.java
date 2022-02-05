@@ -18,6 +18,7 @@ public class Item extends BaseEntity{
     @Column(length = 100)
     private String name;
     private String description;
+    private Boolean isAvailable;
 
 
 }

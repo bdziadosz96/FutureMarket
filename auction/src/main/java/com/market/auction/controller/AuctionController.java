@@ -26,8 +26,7 @@ import static org.springframework.http.HttpStatus.ACCEPTED;
 @RequestMapping("/auction")
 @AllArgsConstructor
 @Slf4j
-public
-class AuctionController {
+public class AuctionController {
     private final AuctionCommandService commandService;
     private final AuctionQueryService queryService;
 

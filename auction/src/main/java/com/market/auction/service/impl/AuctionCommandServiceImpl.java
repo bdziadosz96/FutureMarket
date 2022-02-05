@@ -1,5 +1,6 @@
 package com.market.auction.service.impl;
 
+import com.market.auction.controller.AvailableCheckResponse;
 import com.market.auction.domain.Auction;
 import com.market.auction.domain.Category;
 import com.market.auction.repository.AuctionRepository;
@@ -7,6 +8,7 @@ import com.market.auction.service.AuctionCommandService;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import static com.market.auction.controller.AuctionController.RestAuctionCommand;
 
@@ -14,10 +16,19 @@ import static com.market.auction.controller.AuctionController.RestAuctionCommand
 @AllArgsConstructor
 class AuctionCommandServiceImpl implements AuctionCommandService {
     private final AuctionRepository repository;
+    private final RestTemplate restTemplate;
 
     @Override
     public void createAuction(RestAuctionCommand command) {
         Auction auction = commandToAuction(command);
+        AvailableCheckResponse response = restTemplate.getForObject(
+                "http://localhost:8081/item/{id}",
+                AvailableCheckResponse.class,
+                auction.getItemId()
+        );
+        if (!response.isAvailable()) {
+            throw new IllegalStateException("Wrong id");
+        }
         repository.save(auction);
     }
 

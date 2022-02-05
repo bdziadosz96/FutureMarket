@@ -6,6 +6,7 @@ import com.market.item.service.ItemCommandService;
 import com.market.item.service.RestItemCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 @AllArgsConstructor
@@ -14,9 +15,10 @@ class ItemCommandServiceImpl implements ItemCommandService {
 
     @Override
     public void createItem(RestItemCommand command) {
-        repository.save(new Item(
+        repository.saveAndFlush(new Item(
                 command.name(),
-                command.description()
+                command.description(),
+                command.isAvailable()
         ));
     }
 }
