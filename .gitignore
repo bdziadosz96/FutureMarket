@@ -83,3 +83,4 @@ fabric.properties
 /target/
 /item/item.iml
 /item/target/
+/eureka-server/target/

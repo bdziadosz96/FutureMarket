@@ -1,12 +1,11 @@
 package com.market.auction.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,5 +35,6 @@ class Auction extends BaseEntity {
     private Long itemId;
     private Long quantity;
     private BigInteger price;
+    @Enumerated(EnumType.STRING)
     private Category category;
 }

@@ -40,9 +40,9 @@ class ItemController {
     }
 
     @GetMapping("/{id}")
-    public AvailableCheckResponse checkAvailability(@PathVariable("id") Long id) {
-        log.info("Check availability for id " + id);
-        return queryService.checkAvailability(id);
+    public AvailableCheckResponse checkAvailability(@PathVariable("id") Long itemId) {
+        log.info("Check availability for itemId " + itemId);
+        return queryService.checkAvailability(itemId);
     }
 
 
