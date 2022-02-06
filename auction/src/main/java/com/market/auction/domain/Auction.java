@@ -1,5 +1,6 @@
 package com.market.auction.domain;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
@@ -34,7 +35,7 @@ class Auction extends BaseEntity {
     private LocalDateTime updatedAt;
     private Long itemId;
     private Long quantity;
-    private BigInteger price;
+    private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private Category category;
 }

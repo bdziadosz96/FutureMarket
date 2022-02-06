@@ -22,7 +22,7 @@ class AuctionCommandServiceImpl implements AuctionCommandService {
     public void createAuction(RestAuctionCommand command) {
         Auction auction = commandToAuction(command);
         AvailableCheckResponse response = restTemplate.getForObject(
-                "http://localhost:8081/item/{id}",
+                "http://ITEM/item/{id}",
                 AvailableCheckResponse.class,
                 auction.getItemId()
         );

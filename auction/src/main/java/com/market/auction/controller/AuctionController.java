@@ -1,12 +1,9 @@
 package com.market.auction.controller;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.market.auction.controller.serializer.MoneySerializer;
 import com.market.auction.service.AuctionCommandService;
 import com.market.auction.service.AuctionQueryService;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -50,8 +47,6 @@ public class AuctionController {
         LocalDateTime endTime;
         Long itemId;
         Long quantity;
-        @JsonProperty("amountOfMoney")
-        @JsonSerialize(using = MoneySerializer.class)
-        BigInteger price;
+        BigDecimal price;
     }
 }
