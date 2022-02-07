@@ -1,5 +1,6 @@
 package com.market.item.controller;
 
+import com.market.clients.item.AvailableCheckResponse;
 import com.market.item.domain.Item;
 import com.market.item.service.ItemCommandService;
 import com.market.item.service.ItemQueryService;

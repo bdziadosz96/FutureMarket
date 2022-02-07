@@ -1,6 +1,6 @@
 package com.market.item.service;
 
-import com.market.item.controller.AvailableCheckResponse;
+import com.market.clients.item.AvailableCheckResponse;
 import com.market.item.domain.Item;
 import java.util.List;
 
