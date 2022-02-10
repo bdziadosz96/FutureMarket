@@ -5,11 +5,13 @@ import com.market.item.domain.Item;
 import com.market.item.service.ItemCommandService;
 import com.market.item.service.ItemQueryService;
 import com.market.item.service.RestItemCommand;
+import com.market.item.validator.ItemValidator;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +30,7 @@ class ItemController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public void createItem(@RequestBody RestItemCommand command) {
+    public void createItem(@Validated(ItemValidator.class) @RequestBody RestItemCommand command) {
         log.info("Attempting to register " + command.name() + " - " + command.description());
         commandService.createItem(command);
     }

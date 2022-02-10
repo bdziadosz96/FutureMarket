@@ -1,7 +1,6 @@
 package com.market.auction.domain;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -25,8 +24,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @ToString
 @EntityListeners(AuditingEntityListener.class)
 @Builder
-public
-class Auction extends BaseEntity {
+public class Auction extends BaseEntity {
     private String title;
     private LocalDateTime endTime;
     @CreatedDate

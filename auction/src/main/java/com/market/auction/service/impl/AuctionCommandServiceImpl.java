@@ -9,7 +9,6 @@ import com.market.clients.item.ItemClient;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import static com.market.auction.controller.AuctionController.RestAuctionCommand;
 
@@ -17,7 +16,6 @@ import static com.market.auction.controller.AuctionController.RestAuctionCommand
 @AllArgsConstructor
 class AuctionCommandServiceImpl implements AuctionCommandService {
     private final AuctionRepository repository;
-    private final RestTemplate restTemplate;
     private final ItemClient client;
 
     @Override

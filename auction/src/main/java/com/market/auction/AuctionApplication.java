@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients(
-        basePackages = "com.market.clients.item"
+        basePackages = {"com.market.clients.item","com.market.clients.notification"}
 )
 public class AuctionApplication {
     public static void main(String[] args) {
