@@ -5,13 +5,14 @@ import com.market.notification.repository.NotificationRepository;
 import com.market.notification.service.NotificationService;
 import com.market.notification.service.RestNotificationCommand;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 class NotificationServiceImpl implements NotificationService {
-    NotificationRepository repository;
+    private final NotificationRepository repository;
 
     @Override
     public void createNotification(RestNotificationCommand command) {
@@ -20,6 +21,8 @@ class NotificationServiceImpl implements NotificationService {
 
     private Notification toNotification(RestNotificationCommand command) {
         return Notification.builder()
+                .auctionId(command.auctionId())
+                .itemId(command.itemId())
                 .message(command.message())
                 .createdAt(LocalDateTime.now())
                 .build();

@@ -2,6 +2,7 @@ package com.market.notification.controller;
 
 import com.market.notification.service.NotificationService;
 import com.market.notification.service.RestNotificationCommand;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RequestMapping("/notification")
 class NotificationController {
     private NotificationService service;
@@ -18,6 +19,6 @@ class NotificationController {
     @PostMapping
     ResponseEntity<String> createNotification(@RequestBody RestNotificationCommand command) {
         service.createNotification(command);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.accepted().body(command.message());
     }
 }

@@ -55,7 +55,7 @@ public class AuctionController {
         LocalDateTime endTime;
         @NotNull
         Long itemId;
-        @Min(1)
+        @Size(min = 1, max = 100)
         Long quantity;
         BigDecimal price;
     }

@@ -21,6 +21,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 @Builder
 public class Notification extends BaseEntity{
+    private Long itemId;
+    private Long auctionId;
     private String message;
     @CreatedDate
     private LocalDateTime createdAt;

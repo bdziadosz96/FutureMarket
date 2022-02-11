@@ -14,7 +14,7 @@ class ItemCommandServiceImpl implements ItemCommandService {
 
     @Override
     public void createItem(RestItemCommand command) {
-        repository.saveAndFlush(new Item(
+        repository.save(new Item(
                 command.name(),
                 command.description(),
                 command.isAvailable()
