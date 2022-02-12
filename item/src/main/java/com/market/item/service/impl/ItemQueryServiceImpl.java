@@ -6,9 +6,11 @@ import com.market.item.repository.ItemRepository;
 import com.market.item.service.ItemQueryService;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 class ItemQueryServiceImpl implements ItemQueryService {
     private final ItemRepository repository;
@@ -20,6 +22,7 @@ class ItemQueryServiceImpl implements ItemQueryService {
 
     @Override
     public AvailableCheckResponse checkAvailability(Long id) {
+        log.info("Checking availability of id: " + id);
         Boolean aBoolean = repository.findById(id)
                 .map(Item::getIsAvailable)
                 .orElse(false);

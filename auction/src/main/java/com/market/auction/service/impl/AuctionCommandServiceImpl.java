@@ -11,12 +11,14 @@ import com.market.clients.notification.NotificationClient;
 import com.market.clients.notification.RestNotificationCommand;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import static com.market.auction.controller.AuctionController.RestAuctionCommand;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 class AuctionCommandServiceImpl implements AuctionCommandService {
     private final AuctionRepository repository;
@@ -26,16 +28,21 @@ class AuctionCommandServiceImpl implements AuctionCommandService {
     @Override
     @Transactional
     public void createAuction(RestAuctionCommand command) {
+        log.info("Attempting to create auction with item id" +
+                command.getItemId() + " and title " + command.getTitle());
         Auction auction = commandToAuction(command);
-        AvailableCheckResponse response = itemClient.checkAvailability(auction.getItemId());
+        AvailableCheckResponse response = itemClient.checkAvailability(command.getItemId());
         if (!response.isAvailable()) {
-            throw new ItemNotAvailableException(auction.getItemId());
+            throw new ItemNotAvailableException(command.getItemId());
         }
         Auction createdAuction = repository.saveAndFlush(auction);
-        notificationClient.createNotification(new RestNotificationCommand(
-                auction.getItemId(), createdAuction.getId(), String.format("%d new auction: %d ",
-                auction.getItemId(), createdAuction.getItemId())
-        ));
+        notificationClient.sendNotification(new RestNotificationCommand(
+                auction.getItemId(), createdAuction.getId(), formatNotification(command,createdAuction)));
+    }
+
+    private String formatNotification(RestAuctionCommand command, Auction createdAuction) {
+        return String.format("Auction ID: %s contains Item ID: %s with price %s is valid to %s",
+                createdAuction.getId(),command.getItemId(),command.getPrice(),command.getEndTime());
     }
 
     private Auction commandToAuction(RestAuctionCommand command) {
