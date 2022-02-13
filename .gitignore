@@ -88,3 +88,7 @@ fabric.properties
 /notification/notification.iml
 /auction/auction.iml
 /notification/target/
+/clients/target/
+/auction/target/
+/MyMarket/node_modules/
+/MyMarket/target/
