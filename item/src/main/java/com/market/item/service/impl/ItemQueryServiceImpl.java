@@ -23,10 +23,10 @@ class ItemQueryServiceImpl implements ItemQueryService {
     @Override
     public AvailableCheckResponse checkAvailability(Long id) {
         log.info("Checking availability of id: " + id);
-        Boolean aBoolean = repository.findById(id)
+        Boolean status = repository.findById(id)
                 .map(Item::getIsAvailable)
                 .orElse(false);
-        return new AvailableCheckResponse(aBoolean);
+        return new AvailableCheckResponse(status);
     }
 
 }

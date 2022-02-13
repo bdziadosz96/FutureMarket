@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-class GlobalExceptionHandler {
+class AuctionExceptionHandler {
     @ExceptionHandler(ItemNotAvailableException.class)
     public ResponseEntity<Object> handleItemNotAvailableException(ItemNotAvailableException exception) {
         final Map<String, Object> body = new LinkedHashMap<>();
