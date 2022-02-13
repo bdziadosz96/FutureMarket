@@ -78,6 +78,7 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+#MyConfiguration
 /.idea/
 /FutureMarket.iml
 /target/
@@ -92,3 +93,4 @@ fabric.properties
 /auction/target/
 /MyMarket/node_modules/
 /MyMarket/target/
+mymarket.iml
