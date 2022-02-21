@@ -94,3 +94,5 @@ fabric.properties
 /MyMarket/node_modules/
 /MyMarket/target/
 mymarket.iml
+/gateway/gateway.iml
+/gateway/target/

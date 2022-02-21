@@ -16,6 +16,7 @@
         <module>clients</module>
         <module>notification</module>
         <module>MyMarket</module>
+        <module>gateway</module>
     </modules>
 
     <name>Future Market</name>
