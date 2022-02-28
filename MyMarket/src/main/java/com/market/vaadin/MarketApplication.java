@@ -8,7 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableVaadin
 @Theme(value = "mymarket")
 @PWA(name = "MyMarket", shortName = "MyMarket", offlineResources = {"images/logo.png"})
 public class MarketApplication implements AppShellConfigurator {
