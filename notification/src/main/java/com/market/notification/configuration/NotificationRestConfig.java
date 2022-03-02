@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-class NotificationConfig {
+class NotificationRestConfig {
     @Bean
     @LoadBalanced
     RestTemplate restTemplate() {
