@@ -5,7 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {
+                "com.market.auction",
+                "com.market.rabbit",
+        }
+)
 @EnableEurekaClient
 @EnableFeignClients(
         basePackages = {"com.market.clients.item","com.market.clients.notification"}
