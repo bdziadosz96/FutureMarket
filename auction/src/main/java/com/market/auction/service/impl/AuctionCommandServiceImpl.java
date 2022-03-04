@@ -1,5 +1,6 @@
 package com.market.auction.service.impl;
 
+import com.market.auction.AuctionRabbitConfig;
 import com.market.auction.domain.Auction;
 import com.market.auction.domain.Category;
 import com.market.auction.handler.exception.ItemNotAvailableException;
@@ -25,6 +26,7 @@ class AuctionCommandServiceImpl implements AuctionCommandService {
     private final AuctionRepository repository;
     private final ItemClient itemClient;
     private final RabbitMQMessageProducer producer;
+    private final AuctionRabbitConfig config;
 
     @Override
     @Transactional
@@ -41,8 +43,8 @@ class AuctionCommandServiceImpl implements AuctionCommandService {
                 auction.getItemId(), createdAuction.getId(), formatNotification(command, createdAuction));
         producer.publish(
                 notificationCommand,
-                "internal.exchange",
-                "internal-notification.routing-key"
+                config.getInternalExchange(),
+                config.getInternalNotificationRoutingKey()
         );
     }
 
