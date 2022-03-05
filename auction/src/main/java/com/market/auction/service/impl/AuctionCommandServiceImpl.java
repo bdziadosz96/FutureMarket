@@ -8,7 +8,6 @@ import com.market.auction.repository.AuctionRepository;
 import com.market.auction.service.AuctionCommandService;
 import com.market.clients.item.AvailableCheckResponse;
 import com.market.clients.item.ItemClient;
-import com.market.clients.notification.NotificationClient;
 import com.market.clients.notification.RestNotificationCommand;
 import com.market.rabbit.RabbitMQMessageProducer;
 import java.time.LocalDateTime;

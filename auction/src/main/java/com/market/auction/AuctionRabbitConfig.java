@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AuctionRabbitConfig {
-    @Value("{rabbitmq.exchange.internal}")
+    @Value("${rabbitmq.exchange.internal}")
     private String internalExchange;
 
-    @Value("{rabbitmq.queues.notification}")
+    @Value("${rabbitmq.queues.notification}")
     private String notificationQueue;
 
-    @Value("{rabbitmq.routing-keys.internal-notification}")
+    @Value("${rabbitmq.routing-keys.internal-notification}")
     private String internalNotificationRoutingKey;
 
     @Bean
