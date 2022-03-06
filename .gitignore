@@ -90,9 +90,10 @@ fabric.properties
 /auction/auction.iml
 /notification/target/
 /clients/target/
+/amqp/target/
 /auction/target/
+/gateway/target/
 /MyMarket/node_modules/
 /MyMarket/target/
 mymarket.iml
 /gateway/gateway.iml
-/gateway/target/
