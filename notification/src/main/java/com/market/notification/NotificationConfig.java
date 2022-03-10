@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-class NotificationConfig {
-    @Value("{rabbitmq.exchange.internal}")
+public class NotificationConfig {
+    @Value("${rabbitmq.exchange.internal}")
     private String internalExchange;
 
-    @Value("{rabbitmq.queues.notification}")
+    @Value("${rabbitmq.queues.notification}")
     private String notificationQueue;
 
-    @Value("{rabbitmq.routing-keys.internal-notification}")
+    @Value("${rabbitmq.routing-keys.internal-notification}")
     private String internalNotificationRoutingKey;
 
     @Bean
