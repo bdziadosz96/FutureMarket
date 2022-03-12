@@ -20,7 +20,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @ToString
 @EntityListeners(AuditingEntityListener.class)
 @Builder
-public class Notification extends BaseEntity{
+public class Notification extends BaseEntity {
     private Long itemId;
     private Long auctionId;
     private String message;

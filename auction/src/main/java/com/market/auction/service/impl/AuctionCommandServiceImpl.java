@@ -49,7 +49,7 @@ class AuctionCommandServiceImpl implements AuctionCommandService {
 
     private String formatNotification(RestAuctionCommand command, Auction createdAuction) {
         return String.format("Auction ID: %s contains Item ID: %s with price %s is valid to %s",
-                createdAuction.getId(),command.getItemId(),command.getPrice(),command.getEndTime());
+                createdAuction.getId(), command.getItemId(), command.getPrice(), command.getEndTime());
     }
 
     private Auction commandToAuction(RestAuctionCommand command) {

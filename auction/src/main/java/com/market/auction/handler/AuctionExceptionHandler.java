@@ -2,7 +2,6 @@ package com.market.auction.handler;
 
 import com.market.auction.handler.exception.ItemNotAvailableException;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.springframework.http.HttpStatus;

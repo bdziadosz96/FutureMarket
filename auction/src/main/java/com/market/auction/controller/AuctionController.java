@@ -7,7 +7,6 @@ import com.market.auction.validator.AuctionValidator;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -36,7 +35,7 @@ public class AuctionController {
     @ResponseStatus(ACCEPTED)
     @PostMapping
     public ResponseEntity<?> createAuction(@Validated(AuctionValidator.class)
-                                               @RequestBody RestAuctionCommand command) {
+                                           @RequestBody RestAuctionCommand command) {
         commandService.createAuction(command);
         return ResponseEntity.accepted().build();
     }
