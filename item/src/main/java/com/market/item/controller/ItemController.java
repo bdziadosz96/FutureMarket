@@ -31,7 +31,7 @@ class ItemController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public void createItem(@Validated(ItemValidator.class) @RequestBody RestItemCommand command) {
-        log.info("Attempting to register " + command.name() + " - " + command.description());
+        log.info("Attempting to register " + command.name() + " - " + command.description() + " - " + command.isAvailable());
         commandService.createItem(command);
     }
 
