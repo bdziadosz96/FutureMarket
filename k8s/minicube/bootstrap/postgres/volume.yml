@@ -8,16 +8,18 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   hostPath:
     path: /mnt/data
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: postgres-pc-volume
+  name: postgres-pc-volume-claim
   labels:
     app: postgres
 spec:
